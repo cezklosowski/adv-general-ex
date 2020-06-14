@@ -13,6 +13,8 @@ public class SimpleArrays {
         int[] tab2 = getDistinct(tab);
         printTab(tab);
         printTab(tab2);
+        int[] tab3 = {1,2,3,3,4,7,8,8,6,5,5,5,12};
+        printTab(getLarger(tab,tab3));
     }
 
     public static int[] getDistinct (int[] tab){
@@ -40,5 +42,21 @@ public class SimpleArrays {
             System.out.print(tab[i] + ", ");
         }
         System.out.println(tab[tab.length-1]);
+    }
+
+    public static int[] getLarger(int[] tab1, int[] tab2){
+        long sum1 = 0;
+        for (int i = 0; i < tab1.length; i++) {
+            sum1 += tab1[i];
+        }
+        long sum2 = 0;
+        for (int i = 0; i < tab2.length; i++) {
+            sum2 += tab2[i];
+        }
+        if (sum1 >= sum2){
+            return tab1;
+        } else {
+            return tab2;
+        }
     }
 }
