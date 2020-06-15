@@ -1,5 +1,7 @@
 package pl.sda;
 
+import java.util.Scanner;
+
 public class DrawSomething {
 
     /**
@@ -36,6 +38,76 @@ public class DrawSomething {
      * *********
      */
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Podaj wymiary prostokąta");
+        System.out.println("Bok a: ");
+        int a = scanner.nextInt();
+        System.out.println("Bok b: ");
+        int b = scanner.nextInt();
+        drawRectangle(a, b, true);
+        System.out.println();
+
+        System.out.println("Podaj bok kwadratu");
+        System.out.println("Bok: ");
+        int c = scanner.nextInt();
+        drawSquare(c);
+
+
+
+
+        drawChessboardFillTriangle(5,8);
+    }
+
+    public static void drawRectangle(int a, int b, boolean isChessboardFill) {
+        for (int i = 0; i < b; i++) {
+            System.out.print("*");
+        }
+        System.out.print("\n");
+
+        if (isChessboardFill) {
+            boolean flag = true;
+            for (int i = 0; i < a - 2; i++) {
+                System.out.print("*");
+                for (int j = 0; j < b - 2; j++) {
+                    if (flag) {
+                        System.out.print("*");
+                        flag = !flag;
+                    } else {
+                        System.out.print(" ");
+                        flag = !flag;
+                    }
+                }
+                System.out.print("*");
+                System.out.print("\n");
+                flag = !flag;
+            }
+
+        } else {
+            for (int i = 0; i < a - 2; i++) {
+                System.out.print("*");
+                for (int j = 0; j < b - 2; j++) {
+                    System.out.print(" ");
+                }
+                System.out.print("*");
+                System.out.print("\n");
+            }
+        }
+
+        for (int i = 0; i < b; i++) {
+            System.out.print("*");
+        }
+        System.out.print("\n");
+    }
+
+    public static void drawSquare(int a) {
+        drawRectangle(a, a, false);
+    }
+
+    public static void drawChessboardFillTriangle(int a, int h){
+
+        // Nie wiem jak narysować trójkąt prostokątny inny niż równoramienny :(
 
     }
 }
